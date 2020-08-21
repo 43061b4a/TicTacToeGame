@@ -11,15 +11,16 @@ while True:
     try:
         position = int(input("Player " + str(current_player + 1) +
                              " enter your position [" + symbol + "]: "))
-        valid = game_runner.take_turn(position)
+        game_runner.take_turn(position)
         winner = game_runner.get_winner()
         print("Board state")
         print(game_runner.game.draw())
-        if not valid or len(winner) > 0:
+        if winner is not None or game_runner.game_over():
             print("Game Over!")
-            print("Congrats! Player " + " ".join([str(w + 1) for w in winner]) + " won!")
+            if winner:
+                print("Congrats! Player " + str(winner) + " won!")
             break
     except ValueError:
-        print(str(position) + " position is already taken!")
+        print(str(position) + " position is already taken or invalid!")
 
 print("Thanks for playing.")

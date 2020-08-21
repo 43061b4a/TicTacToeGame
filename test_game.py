@@ -21,7 +21,7 @@ class TestGameRunner(unittest.TestCase):
         self.assertTrue(allowed)
         self.assertNotEqual(actual1, actual2)
 
-    def test_should_return_false_when_all_postions_taen(self):
+    def test_should_return_false_when_all_postions_taken(self):
         for i in range(1, 10):
             self.game_runner.take_turn(i)
         allowed = self.game_runner.take_turn(1)
@@ -31,6 +31,15 @@ class TestGameRunner(unittest.TestCase):
         self.game_runner.take_turn(1)
         with self.assertRaises(ValueError):
             self.game_runner.take_turn(1)
+
+    def test_should_return_correct_winner(self):
+        for i in [1, 2, 4, 6, 8, 9]:
+            self.game_runner.take_turn(i)
+        for i in [3, 5, 7]:
+            self.game_runner.take_turn(i)
+        actual = self.game_runner.get_winner()
+        expected = [1, 2]
+        self.assertIn(actual, expected)
 
 
 class TestTickTacToeGame(unittest.TestCase):

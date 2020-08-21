@@ -11,6 +11,9 @@ class GameRunner:
         self.current_player = random.randint(0, self.player_count - 1)
         self.symbols = ['✕', '◉']
 
+    def game_over(self):
+        return self.game.all_positions_taken() == True
+
     def get_current_player(self):
         return self.current_player
 
@@ -26,8 +29,7 @@ class GameRunner:
             return False
 
     def get_winner(self):
-        result = []
         for i in range(self.player_count):
             if self.game.check(self.symbols[i]):
-                result.append(i)
-        return result
+                return i+1
+        return None
