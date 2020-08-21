@@ -8,9 +8,9 @@ print(game_runner.game.draw(False))
 while True:
     current_player = game_runner.get_current_player()
     symbol = game_runner.get_current_player_symbol()
+    position = int(input("Player " + str(current_player + 1) +
+                         " enter your position [" + symbol + "]: "))
     try:
-        position = int(input("Player " + str(current_player + 1) +
-                             " enter your position [" + symbol + "]: "))
         game_runner.take_turn(position)
         winner = game_runner.get_winner()
         print("Board state")

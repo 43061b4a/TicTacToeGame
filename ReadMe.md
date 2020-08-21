@@ -6,5 +6,5 @@
 ### Command to run tests:
     python3 test_game.py
 
-### Cpmmand to run console app:
+### Command to run console app:
     python3 game_console.py
