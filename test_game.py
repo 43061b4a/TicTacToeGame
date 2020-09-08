@@ -127,4 +127,4 @@ class TestTickTacToeGame(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 
-unittest.main(verbosity=0)
+unittest.main(verbosity=2)
