@@ -12,7 +12,7 @@ class GameRunner:
         self.symbols = ['✕', '◉']
 
     def game_over(self):
-        return self.game.all_positions_taken() == True
+        return self.game.all_positions_taken()
 
     def get_current_player(self):
         return self.current_player
@@ -31,5 +31,5 @@ class GameRunner:
     def get_winner(self):
         for i in range(self.player_count):
             if self.game.check(self.symbols[i]):
-                return i+1
+                return i + 1
         return None
